@@ -9,6 +9,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -31,6 +32,12 @@ public class CharityResults extends ListActivity {
         Intent intent = getIntent();
         String location = intent.getStringExtra("location");
         mResultsLabel.setText("Charities for: " + location);
+        mResultsLabel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(CharityResults.this, "Your Neighborhood", Toast.LENGTH_LONG).show();
+            }
+        });
 
         //listener to eventually display each charity onClick
         ListView listViewItem = getListView();
