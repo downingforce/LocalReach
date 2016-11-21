@@ -15,7 +15,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".CharityResults"></activity>
+        <activity android:name=".CharityResults" />
+        <activity android:name=".CharityDetail"></activity>
+        <activity android:name=".SingleListItem"
+            android:label="Single Item Selected"></activity>
     </application>
 
 </manifest>

@@ -30,4 +30,9 @@
         android:layout_below="@+id/resultsLabel"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
+
+    <ListView android:id="@android:id/list"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"/>
+
 </RelativeLayout>
