@@ -20,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
 
+        //click listener on button to pass user entered zipcode to CharityResults activity
         mSearchCharitiesButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

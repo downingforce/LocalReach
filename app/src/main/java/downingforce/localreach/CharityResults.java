@@ -24,6 +24,7 @@ public class CharityResults extends ListActivity {
         setContentView(R.layout.activity_charity_results);
         ButterKnife.bind(this);
 
+        //adapter sends String array elements to another activity
         ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, charitiesTestArray);
         mCharityListView.setAdapter(adapter);
 
@@ -32,7 +33,6 @@ public class CharityResults extends ListActivity {
         mResultsLabel.setText("Charities for: " + location);
 
         //listener to eventually display each charity onClick
-
         ListView listViewItem = getListView();
         
         listViewItem.setOnItemClickListener(new AdapterView.OnItemClickListener() {
