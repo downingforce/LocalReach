@@ -7,17 +7,19 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import butterknife.Bind;
+import butterknife.ButterKnife;
+
 public class MainActivity extends AppCompatActivity {
-    private Button mSearchCharitiesButton;
-    private EditText mZipCodeEditText;
+    @Bind(R.id.seachCharitiesButton) Button mSearchCharitiesButton;
+    @Bind(R.id.zipCode) EditText mZipCodeEditText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        ButterKnife.bind(this);
 
-        mZipCodeEditText = (EditText) findViewById(R.id.zipCode);
-        mSearchCharitiesButton = (Button) findViewById(R.id.seachCharitiesButton);
         mSearchCharitiesButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

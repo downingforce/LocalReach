@@ -7,20 +7,22 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import butterknife.Bind;
+import butterknife.ButterKnife;
+
 public class CharityResults extends AppCompatActivity {
-    private TextView mResultsLabel;
+    @Bind(R.id.resultsLabel) TextView mResultsLabel;
+    @Bind(R.id.charityList) ListView mCharityListView;
     private String[] charitiesTestArray = new String[] {"Red Cross", "Habitat for Humanity", "Charity Water", "United Way", "PBS"};
-    private ListView mCharityListView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_charity_results);
+        ButterKnife.bind(this);
 
-        mCharityListView = (ListView) findViewById(R.id.charityList);
         ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, charitiesTestArray);
         mCharityListView.setAdapter(adapter);
-        mResultsLabel = (TextView) findViewById(R.id.resultsLabel);
 
         Intent intent = getIntent();
         String location = intent.getStringExtra("location");
