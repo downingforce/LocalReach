@@ -43,16 +43,30 @@
         android:layout_below="@+id/appName"
         android:layout_centerHorizontal="true" />
 
+    <EditText
+        android:layout_width="256dp"
+        android:textSize="20sp"
+        android:layout_height="40dp"
+        android:inputType="textPersonName"
+        android:hint="Enter Zip Code"
+        android:background="@color/colorTextIcons"
+        android:gravity="center"
+        android:ems="10"
+        android:id="@+id/zipCode"
+        android:layout_below="@+id/textView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="92dp" />
+
     <Button
         android:text="Search Charities"
         android:textSize="20sp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="256dp"
+        android:layout_height="40dp"
         android:background="@color/colorAccent"
         android:textColor="@color/colorTextIcons"
         android:id="@+id/seachCharitiesButton"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_below="@+id/zipCode"
+        android:layout_alignLeft="@+id/zipCode"
+        android:layout_alignStart="@+id/zipCode" />
 
 </RelativeLayout>
