@@ -10,4 +10,16 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="downingforce.localreach.CharityResults">
 
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:text="Check out the Charities in your area"
+        android:textSize="15sp"
+        android:gravity="center"
+        android:ems="10"
+        android:layout_marginTop="73dp"
+        android:id="@+id/resultsLabel"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
 </RelativeLayout>
