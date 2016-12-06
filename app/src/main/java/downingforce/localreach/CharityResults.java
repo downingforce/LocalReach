@@ -13,6 +13,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.IOException;
+import java.util.ArrayList;
+
 import okhttp3.Response;
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -20,21 +22,18 @@ import okhttp3.Call;
 import okhttp3.Callback;
 
 public class CharityResults extends AppCompatActivity {
+
+    public ArrayList<Charity> mCharities = new ArrayList<>();
     public static final String TAG = CharityResults.class.getSimpleName();
 
     @Bind(R.id.resultsLabel) TextView mResultsLabel;
     @Bind(R.id.charityList) ListView mCharityListView;
-    private String[] charitiesTestArray = new String[] {"Red Cross", "Habitat for Humanity", "Charity Water", "United Way", "PBS"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_charity_results);
         ButterKnife.bind(this);
-
-        //adapter sends String array elements to another activity
-        ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, charitiesTestArray);
-        mCharityListView.setAdapter(adapter);
 
         Intent intent = getIntent();
         String location = intent.getStringExtra("location");
@@ -61,15 +60,23 @@ public class CharityResults extends AppCompatActivity {
 
             @Override
             public void onResponse(Call call, Response response) throws IOException {
-                try {
-                    String jsonData = response.body().string();
-                    Log.v(TAG, jsonData);
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+                mCharities= guideStarService.processResults(response);
+
+                CharityResults.this.runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        String[] charityNames = new String[mCharities.size()];
+                        for (int i = 0; i < charityNames.length; i++) {
+                            charityNames[i] = mCharities.get(i).getmName();
+                        }
+
+
+                        ArrayAdapter adapter = new ArrayAdapter(CharityResults.this,
+                                android.R.layout.simple_list_item_1, charityNames);
+                        mCharityListView.setAdapter(adapter);
+                    }
+                });
             }
         });
-
-
     }
 }
