@@ -4,6 +4,7 @@ import android.app.ListActivity;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -11,10 +12,16 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.IOException;
+import okhttp3.Response;
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import okhttp3.Call;
+import okhttp3.Callback;
 
-public class CharityResults extends ListActivity {
+public class CharityResults extends AppCompatActivity {
+    public static final String TAG = CharityResults.class.getSimpleName();
+
     @Bind(R.id.resultsLabel) TextView mResultsLabel;
     @Bind(R.id.charityList) ListView mCharityListView;
     private String[] charitiesTestArray = new String[] {"Red Cross", "Habitat for Humanity", "Charity Water", "United Way", "PBS"};
@@ -32,24 +39,37 @@ public class CharityResults extends ListActivity {
         Intent intent = getIntent();
         String location = intent.getStringExtra("location");
         mResultsLabel.setText("Charities for: " + location);
+
+        getCharities(location);
+
         mResultsLabel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Toast.makeText(CharityResults.this, "Your Neighborhood", Toast.LENGTH_LONG).show();
             }
         });
+    }
 
-        //listener to eventually display each charity onClick
-        ListView listViewItem = getListView();
-        
-        listViewItem.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+    private void getCharities(String location) {
+        final GuideStarService guideStarService = new GuideStarService();
+        guideStarService.findCharities(location, new Callback() {
+
             @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                String charityName = ((TextView) view).getText().toString();
-                Intent newIntent = new Intent(getApplicationContext(), CharityDetail.class);
-                newIntent.putExtra("charityName", charityName);
-                startActivity(newIntent);
+            public void onFailure(Call call, IOException e) {
+                e.printStackTrace();
+            }
+
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+                try {
+                    String jsonData = response.body().string();
+                    Log.v(TAG, jsonData);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
         });
+
+
     }
 }
