@@ -8,7 +8,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="downingforce.localreach.CharityResults">
+    tools:context="downingforce.localreach.ui.CharityResults">
 
     <EditText
         android:layout_width="wrap_content"
@@ -31,8 +31,9 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
 
-    <ListView android:id="@android:id/list"
-        android:layout_width="10dp"
-        android:layout_height="10dp"/>
+    <android.support.v7.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/recyclerView"/>
 
 </RelativeLayout>
