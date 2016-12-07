@@ -1,4 +1,4 @@
-package downingforce.localreach;
+package downingforce.localreach.models;
 
 public class Charity {
     private String mEin;

@@ -1,8 +1,9 @@
-package downingforce.localreach;
+package downingforce.localreach.services;
 
 
 import android.util.Log;
-
+import downingforce.localreach.Constants;
+import downingforce.localreach.models.Charity;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;

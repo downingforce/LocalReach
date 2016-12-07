@@ -1,4 +1,4 @@
-package downingforce.localreach;
+package downingforce.localreach.ui;
 
 import android.app.ListActivity;
 import android.content.Intent;
@@ -11,6 +11,10 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import downingforce.localreach.R;
+import downingforce.localreach.services.GuideStarService;
+import downingforce.localreach.models.Charity;
 
 import java.io.IOException;
 import java.util.ArrayList;
