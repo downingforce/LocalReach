@@ -1,9 +1,11 @@
-package downingforce.localreach;
+package downingforce.localreach.ui;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.TextView;
+
+import downingforce.localreach.R;
 
 public class CharityDetail extends Activity {
 
