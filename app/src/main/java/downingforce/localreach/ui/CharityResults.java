@@ -4,6 +4,8 @@ import android.app.ListActivity;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
@@ -13,6 +15,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import downingforce.localreach.R;
+import downingforce.localreach.adapters.CharityListAdapter;
 import downingforce.localreach.services.GuideStarService;
 import downingforce.localreach.models.Charity;
 
@@ -31,7 +34,8 @@ public class CharityResults extends AppCompatActivity {
     public static final String TAG = CharityResults.class.getSimpleName();
 
     @Bind(R.id.resultsLabel) TextView mResultsLabel;
-    @Bind(R.id.charityList) ListView mCharityListView;
+    @Bind(R.id.recyclerView) RecyclerView mRecyclerView;
+    private CharityListAdapter mAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,15 +73,12 @@ public class CharityResults extends AppCompatActivity {
                 CharityResults.this.runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        String[] charityNames = new String[mCharities.size()];
-                        for (int i = 0; i < charityNames.length; i++) {
-                            charityNames[i] = mCharities.get(i).getmName();
-                        }
-
-
-                        ArrayAdapter adapter = new ArrayAdapter(CharityResults.this,
-                                android.R.layout.simple_list_item_1, charityNames);
-                        mCharityListView.setAdapter(adapter);
+                        mAdapter = new CharityListAdapter(getApplicationContext(), mCharities);
+                        mRecyclerView.setAdapter(mAdapter);
+                        RecyclerView.LayoutManager layoutManager =
+                                new LinearLayoutManager(CharityResults.this);
+                        mRecyclerView.setLayoutManager(layoutManager);
+                        mRecyclerView.setHasFixedSize(true);
                     }
                 });
             }
