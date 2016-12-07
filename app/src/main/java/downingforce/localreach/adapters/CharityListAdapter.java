@@ -2,6 +2,9 @@ package downingforce.localreach.adapters;
 
 
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
+import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -30,7 +33,9 @@ public class CharityListAdapter extends RecyclerView.Adapter<CharityListAdapter.
     public CharityListAdapter.CharityViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.charity_list_item, parent, false);
         CharityViewHolder viewHolder = new CharityViewHolder(view);
+
         return viewHolder;
+
     }
 
     @Override

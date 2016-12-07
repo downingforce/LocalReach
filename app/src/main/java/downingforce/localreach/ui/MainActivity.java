@@ -13,10 +13,8 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
-    @Bind(R.id.seachCharitiesButton)
-    Button mSearchCharitiesButton;
-    @Bind(R.id.zipCode)
-    EditText mZipCodeEditText;
+    @Bind(R.id.seachCharitiesButton) Button mSearchCharitiesButton;
+    @Bind(R.id.zipCode) EditText mZipCodeEditText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
