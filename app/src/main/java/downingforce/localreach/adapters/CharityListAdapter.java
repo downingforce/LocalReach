@@ -24,12 +24,13 @@ public class CharityListAdapter extends RecyclerView.Adapter<CharityListAdapter.
     private ArrayList<Charity> mCharities = new ArrayList<>();
     private Context mContext;
 
+
     public CharityListAdapter(Context context, ArrayList<Charity> charities) {
         mContext = context;
         mCharities = charities;
     }
 
-    @Override
+        @Override
     public CharityListAdapter.CharityViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.charity_list_item, parent, false);
         CharityViewHolder viewHolder = new CharityViewHolder(view);
@@ -61,9 +62,10 @@ public class CharityListAdapter extends RecyclerView.Adapter<CharityListAdapter.
             mContext = itemView.getContext();
         }
 
-        public void bindCharity(Charity charity) {
+        public void bindCharity(final Charity charity) {
             mCharityNameTextView.setText(charity.getmName());
             mMissionStatementTextView.setText(charity.getmMission());
         }
+
     }
 }
