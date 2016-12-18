@@ -1,16 +1,21 @@
 package downingforce.localreach.models;
 
+import org.parceler.Parcel;
+
+@Parcel
 public class Charity {
-    private String mEin;
-    private String mName;
-    private String mMission;
-    private String mCity;
-    private String mState;
-    private String mZip;
-    private String mPublicReport;
-    private String mWebsite;
-    private String mLogo;
-    private String mNteecode;
+    String mEin;
+    String mName;
+    String mMission;
+    String mCity;
+    String mState;
+    String mZip;
+    String mPublicReport;
+    String mWebsite;
+    String mLogo;
+    String mNteecode;
+
+    public Charity() {}
 
     public Charity(String mEin, String mName, String mMission, String mCity, String mState, String mZip, String mPublicReport, String mWebsite, String mLogo, String mNteecode) {
         this.mEin = mEin;
