@@ -1,6 +1,8 @@
 package downingforce.localreach.ui;
 
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -21,7 +23,7 @@ import butterknife.ButterKnife;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class CharityDetailFragment extends Fragment {
+public class CharityDetailFragment extends Fragment implements View.OnClickListener{
     @Bind(R.id.charityImageView) ImageView mImageLabel;
     @Bind(R.id.charityNameTextView) TextView mNameLabel;
     @Bind(R.id.nteeTextView) TextView mCategoriesLabel;
@@ -33,7 +35,7 @@ public class CharityDetailFragment extends Fragment {
     private Charity mCharity;
 
 
-    public CharityDetailFragment newInstance(Charity charity) {
+    public static CharityDetailFragment newInstance(Charity charity) {
         CharityDetailFragment charityDetailFragment = new CharityDetailFragment();
         Bundle args = new Bundle();
         args.putParcelable("charity", Parcels.wrap(charity));
@@ -61,7 +63,18 @@ public class CharityDetailFragment extends Fragment {
         mWebsiteLabel.setText(mCharity.getmWebsite());
         mAddressLabel.setText(mCharity.getmCity());
 
+        mWebsiteLabel.setOnClickListener(this);
+
         return view;
+    }
+
+    @Override
+    public void onClick(View v) {
+        if (v == mWebsiteLabel) {
+            Intent webIntent = new Intent(Intent.ACTION_VIEW,
+                    Uri.parse(mCharity.getmWebsite()));
+            startActivity(webIntent);
+        }
     }
 
 }

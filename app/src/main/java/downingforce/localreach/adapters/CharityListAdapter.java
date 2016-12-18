@@ -14,6 +14,8 @@ import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
 
+import org.parceler.Parcels;
+
 import downingforce.localreach.R;
 import downingforce.localreach.models.Charity;
 
@@ -21,6 +23,8 @@ import java.util.ArrayList;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import downingforce.localreach.ui.CharityDetail;
+import downingforce.localreach.ui.CharityDetailFragment;
 
 public class CharityListAdapter extends RecyclerView.Adapter<CharityListAdapter.CharityViewHolder> {
     private ArrayList<Charity> mCharities = new ArrayList<>();
@@ -62,6 +66,17 @@ public class CharityListAdapter extends RecyclerView.Adapter<CharityListAdapter.
             super(itemView);
             ButterKnife.bind(this, itemView);
             mContext = itemView.getContext();
+            itemView.setOnClickListener(new View.OnClickListener() {
+
+                @Override
+                public void onClick(View view) {
+                    int itemPosition = getLayoutPosition();
+                    Intent intent = new Intent(mContext, CharityDetail.class);
+                    intent.putExtra("position", itemPosition);
+                    intent.putExtra("charities", Parcels.wrap(mCharities));
+                    mContext.startActivity(intent);
+                }
+            });
         }
 
         public void bindCharity(final Charity charity) {
