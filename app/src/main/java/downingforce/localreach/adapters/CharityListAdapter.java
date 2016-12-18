@@ -12,6 +12,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.squareup.picasso.Picasso;
+
 import downingforce.localreach.R;
 import downingforce.localreach.models.Charity;
 
@@ -63,6 +65,7 @@ public class CharityListAdapter extends RecyclerView.Adapter<CharityListAdapter.
         }
 
         public void bindCharity(final Charity charity) {
+            Picasso.with(mContext).load(charity.getmLogo()).into(mCharityImageView);
             mCharityNameTextView.setText(charity.getmName());
             mMissionStatementTextView.setText(charity.getmMission());
         }

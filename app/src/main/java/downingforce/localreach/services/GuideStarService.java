@@ -57,7 +57,7 @@ public class GuideStarService {
                     String website = charityJSON.getString("website");
                     String logo = charityJSON.getString("logo_url");
                     String nteecode = charityJSON.getString("nteecode");
-                    if (logo.equals("null")) {
+                    if (logo.isEmpty()) {
                         logo = "https://unsplash.it/200/300/?random";
                     }
                     Charity charity = new Charity(ein, name, mission, city, state, zip, report, website, logo, nteecode);
