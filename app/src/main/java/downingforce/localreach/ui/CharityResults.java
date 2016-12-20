@@ -1,11 +1,14 @@
 package downingforce.localreach.ui;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
+import downingforce.localreach.Constants;
 import downingforce.localreach.R;
 import downingforce.localreach.adapters.CharityListAdapter;
 import downingforce.localreach.services.GuideStarService;
@@ -22,10 +25,13 @@ import okhttp3.Callback;
 
 public class CharityResults extends AppCompatActivity {
 
-    public ArrayList<Charity> mCharities = new ArrayList<>();
+//    private SharedPreferences mSharedPreferences;
+//    private String mRecentZip;
 
     @Bind(R.id.recyclerView) RecyclerView mRecyclerView;
     private CharityListAdapter mAdapter;
+
+    public ArrayList<Charity> mCharities = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +44,11 @@ public class CharityResults extends AppCompatActivity {
 
         getCharities(location);
 
+//        mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+//        mRecentZip = mSharedPreferences.getString(Constants.PREFERENCES_LOCATION_KEY, null);
+//        if (mRecentZip != null) {
+//            getCharities(mRecentZip);
+//        }
     }
 
     private void getCharities(String location) {

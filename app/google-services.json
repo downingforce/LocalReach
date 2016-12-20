@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "1026197101743",
+    "firebase_url": "https://localreach-1c2cd.firebaseio.com",
+    "project_id": "localreach-1c2cd",
+    "storage_bucket": "localreach-1c2cd.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1026197101743:android:0118ba1f5dfeaf79",
+        "android_client_info": {
+          "package_name": "downingforce.localreach"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1026197101743-cvpkajucqs40le956uhdh983hu5aqggh.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "downingforce.localreach",
+            "certificate_hash": "E0F823DA75E9EC78AA3296148127F3D40E0F3EB8"
+          }
+        },
+        {
+          "client_id": "1026197101743-f8rvk2iv9sa1noc1t0abp9gi2cfrgt3d.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBOZ8h2DYG11XQOzBFSOerAtD43q1NqKb8"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1026197101743-f8rvk2iv9sa1noc1t0abp9gi2cfrgt3d.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

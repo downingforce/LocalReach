@@ -4,109 +4,109 @@ import org.parceler.Parcel;
 
 @Parcel
 public class Charity {
-    String mEin;
-    String mName;
-    String mMission;
-    String mCity;
-    String mState;
-    String mZip;
-    String mPublicReport;
-    String mWebsite;
-    String mLogo;
-    String mNteecode;
+    String Ein;
+    String Name;
+    String Mission;
+    String City;
+    String State;
+    String Zip;
+    String PublicReport;
+    String Website;
+    String Logo;
+    String Nteecode;
 
     public Charity() {}
 
-    public Charity(String mEin, String mName, String mMission, String mCity, String mState, String mZip, String mPublicReport, String mWebsite, String mLogo, String mNteecode) {
-        this.mEin = mEin;
-        this.mName = mName;
-        this.mMission = mMission;
-        this.mCity = mCity;
-        this.mState = mState;
-        this.mZip = mZip;
-        this.mPublicReport = mPublicReport;
-        this.mWebsite = mWebsite;
-        this.mLogo = mLogo;
-        this.mNteecode = mNteecode;
+    public Charity(String Ein, String Name, String Mission, String City, String State, String Zip, String PublicReport, String Website, String Logo, String Nteecode) {
+        this.Ein = Ein;
+        this.Name = Name;
+        this.Mission = Mission;
+        this.City = City;
+        this.State = State;
+        this.Zip = Zip;
+        this.PublicReport = PublicReport;
+        this.Website = Website;
+        this.Logo = Logo;
+        this.Nteecode = Nteecode;
     }
 
     public String getmEin() {
-        return mEin;
+        return Ein;
     }
 
-    public void setmEin(String mEin) {
-        this.mEin = mEin;
+    public void setmEin(String Ein) {
+        this.Ein = Ein;
     }
 
     public String getmName() {
-        return mName;
+        return Name;
     }
 
-    public void setmName(String mName) {
-        this.mName = mName;
+    public void setmName(String Name) {
+        this.Name = Name;
     }
 
     public String getmMission() {
-        return mMission;
+        return Mission;
     }
 
-    public void setmMission(String mMission) {
-        this.mMission = mMission;
+    public void setmMission(String Mission) {
+        this.Mission = Mission;
     }
 
     public String getmCity() {
-        return mCity;
+        return City;
     }
 
-    public void setmCity(String mCity) {
-        this.mCity = mCity;
+    public void setmCity(String City) {
+        this.City = City;
     }
 
     public String getmState() {
-        return mState;
+        return State;
     }
 
-    public void setmState(String mState) {
-        this.mState = mState;
+    public void setmState(String State) {
+        this.State = State;
     }
 
     public String getmZip() {
-        return mZip;
+        return Zip;
     }
 
-    public void setmZip(String mZip) {
-        this.mZip = mZip;
+    public void setmZip(String Zip) {
+        this.Zip = Zip;
     }
 
     public String getmPublicReport() {
-        return mPublicReport;
+        return PublicReport;
     }
 
-    public void setmPublicReport(String mPublicReport) {
-        this.mPublicReport = mPublicReport;
+    public void setmPublicReport(String PublicReport) {
+        this.PublicReport = PublicReport;
     }
 
     public String getmWebsite() {
-        return mWebsite;
+        return Website;
     }
 
-    public void setmWebsite(String mWebsite) {
-        this.mWebsite = mWebsite;
+    public void setmWebsite(String Website) {
+        this.Website = Website;
     }
 
     public String getmLogo() {
-        return mLogo;
+        return Logo;
     }
 
-    public void setmLogo(String mLogo) {
-        this.mLogo = mLogo;
+    public void setmLogo(String Logo) {
+        this.Logo = Logo;
     }
 
     public String getmNteecode() {
-        return mNteecode;
+        return Nteecode;
     }
 
-    public void setmNteecode(String mNteecode) {
-        this.mNteecode = mNteecode;
+    public void setmNteecode(String Nteecode) {
+        this.Nteecode = Nteecode;
     }
 }
