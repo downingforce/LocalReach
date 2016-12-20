@@ -31,6 +31,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Bind(R.id.seachCharitiesButton) Button mSearchCharitiesButton;
     @Bind(R.id.zipCode) EditText mZipCodeEditText;
+    @Bind(R.id.myCharitiesButton) Button mMyCharitiesButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,6 +66,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         //click listener on button to pass user entered zipcode to CharityResults activity
         mSearchCharitiesButton.setOnClickListener(this);
+        mMyCharitiesButton.setOnClickListener(this);
     }
 
     @Override
@@ -79,7 +81,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             intent.putExtra("location", location);
             startActivity(intent);
         }
+        if (v == mMyCharitiesButton) {
+            Intent intent = new Intent(MainActivity.this, SavedCharityList.class);
+            startActivity(intent);
+        }
     }
+
     public void saveLocationToFirebase(String location) {
         mSearchedLocationReference.push().setValue(location);
     }
