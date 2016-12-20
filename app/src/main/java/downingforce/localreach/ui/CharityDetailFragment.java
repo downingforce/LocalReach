@@ -69,6 +69,7 @@ public class CharityDetailFragment extends Fragment implements View.OnClickListe
         mAddressLabel.setText(mCharity.getmCity());
 
         mWebsiteLabel.setOnClickListener(this);
+        mSaveCharityButton.setOnClickListener(this);
 
         return view;
     }
