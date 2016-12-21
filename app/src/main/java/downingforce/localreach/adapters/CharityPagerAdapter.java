@@ -20,7 +20,7 @@ public class CharityPagerAdapter extends FragmentPagerAdapter {
 
     @Override
     public Fragment getItem(int position) {
-        return CharityDetailFragment.newInstance(mCharities.get(position));
+        return CharityDetailFragment.newInstance(mCharities, position);
     }
 
     @Override
