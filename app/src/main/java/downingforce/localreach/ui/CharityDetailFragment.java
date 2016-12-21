@@ -10,9 +10,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import downingforce.localreach.Constants;
 import downingforce.localreach.R;
 import downingforce.localreach.models.Charity;
+
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.squareup.picasso.Picasso;
 
 import org.parceler.Parcels;
@@ -64,6 +69,7 @@ public class CharityDetailFragment extends Fragment implements View.OnClickListe
         mAddressLabel.setText(mCharity.getmCity());
 
         mWebsiteLabel.setOnClickListener(this);
+        mSaveCharityButton.setOnClickListener(this);
 
         return view;
     }
@@ -74,6 +80,13 @@ public class CharityDetailFragment extends Fragment implements View.OnClickListe
             Intent webIntent = new Intent(Intent.ACTION_VIEW,
                     Uri.parse(mCharity.getmWebsite()));
             startActivity(webIntent);
+        }
+        if (v == mSaveCharityButton) {
+            DatabaseReference restaurantRef = FirebaseDatabase
+                    .getInstance()
+                    .getReference(Constants.FIREBASE_CHILD_CHARITIES);
+            restaurantRef.push().setValue(mCharity);
+            Toast.makeText(getContext(), "Saved", Toast.LENGTH_SHORT).show();
         }
     }
 

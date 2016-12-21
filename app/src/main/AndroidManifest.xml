@@ -10,22 +10,25 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.MainActivity" android:theme="@style/NoActionBarTheme">>
+        <activity
+            android:name=".ui.MainActivity">
+        </activity>
+        <activity android:name=".ui.CharityResults">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ui.MainActivity" />
+        </activity>
+        <activity android:name=".ui.CharityDetail" />
+        <activity android:name=".ui.LandingScreenActivity" />
+        <activity android:name=".ui.SavedCharityList" />
+        <activity android:name=".ui.CreateAccount" />
+        <activity android:name=".ui.Login">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".ui.CharityResults">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".ui.MainActivity">
-            </meta-data>
-        </activity>
-        <activity android:name=".ui.CharityDetail" />
-        <activity android:name=".ui.LandingScreenActivity"></activity>
     </application>
 
 </manifest>

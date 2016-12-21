@@ -69,4 +69,16 @@
         android:layout_alignLeft="@+id/zipCode"
         android:layout_alignStart="@+id/zipCode" />
 
+    <Button
+        android:text="My Charities"
+        android:textSize="20sp"
+        android:layout_width="256dp"
+        android:layout_height="40dp"
+        android:background="@color/colorAccent"
+        android:textColor="@color/colorTextIcons"
+        android:id="@+id/myCharitiesButton"
+        android:layout_below="@+id/seachCharitiesButton"
+        android:layout_marginTop="10dp"
+        android:layout_alignLeft="@+id/zipCode"
+        android:layout_alignStart="@+id/zipCode" />
 </RelativeLayout>
