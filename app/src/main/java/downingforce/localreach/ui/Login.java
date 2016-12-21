@@ -7,6 +7,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.animation.AlphaAnimation;
+import android.view.animation.Animation;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -126,6 +128,9 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
 
         if (view == mPasswordLoginButton) {
             loginWithPassword();
+            Animation animation = new AlphaAnimation(1.0f, 0.0f);
+            animation.setDuration(1000);
+            mPasswordLoginButton.startAnimation(animation);
         }
 
     }

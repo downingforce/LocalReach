@@ -11,6 +11,8 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.animation.AlphaAnimation;
+import android.view.animation.Animation;
 import android.widget.Button;
 import android.widget.EditText;
 
@@ -108,10 +110,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if (v == mSearchCharitiesButton) {
             Intent intent = new Intent(MainActivity.this, CharityResults.class);
             startActivity(intent);
+            Animation animation = new AlphaAnimation(1.0f, 0.0f);
+            animation.setDuration(1000);
+            mSearchCharitiesButton.startAnimation(animation);
         }
         if (v == mMyCharitiesButton) {
             Intent intent = new Intent(MainActivity.this, SavedCharityList.class);
             startActivity(intent);
+            Animation animation = new AlphaAnimation(1.0f, 0.0f);
+            animation.setDuration(1000);
+            mMyCharitiesButton.startAnimation(animation);
         }
     }
 }

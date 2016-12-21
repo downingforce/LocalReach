@@ -77,4 +77,28 @@
         android:layout_above="@+id/linearLayout"
         android:layout_centerHorizontal="true" />
 
+    <TextView
+        android:layout_width="290dp"
+        android:layout_height="wrap_content"
+        android:text="Explore the organizations doing work in your cities and neighborhoods"
+        android:id="@+id/body1"
+        android:textColor="@color/colorTextIcons"
+        android:textSize="25sp"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="290dp"
+        android:layout_height="wrap_content"
+        android:text="Search, Read, Learn, and Support!"
+        android:id="@+id/body2"
+        android:textColor="@color/colorTextIcons"
+        android:textSize="25sp"
+        android:layout_marginTop="22dp"
+        android:gravity="center"
+        android:layout_below="@+id/linearLayout"
+        android:layout_alignLeft="@+id/body1"
+        android:layout_alignStart="@+id/body1" />
+
 </RelativeLayout>
