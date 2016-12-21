@@ -22,6 +22,8 @@ import com.squareup.picasso.Picasso;
 
 import org.parceler.Parcels;
 
+import java.util.ArrayList;
+
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
@@ -38,12 +40,16 @@ public class CharityDetailFragment extends Fragment implements View.OnClickListe
     @Bind(R.id.saveCharityButton) TextView mSaveCharityButton;
 
     private Charity mCharity;
+    private ArrayList<Charity> mCharities;
+    private int mPosition;
 
 
-    public static CharityDetailFragment newInstance(Charity charity) {
+    public static CharityDetailFragment newInstance(ArrayList<Charity> charities, Integer position) {
         CharityDetailFragment charityDetailFragment = new CharityDetailFragment();
         Bundle args = new Bundle();
-        args.putParcelable("charity", Parcels.wrap(charity));
+        args.putParcelable(Constants.EXTRA_KEY_CHARITIES, Parcels.wrap(charities));
+        args.putInt(Constants.EXTRA_KEY_POSITION, position);
+
         charityDetailFragment.setArguments(args);
         return charityDetailFragment;
     }
@@ -51,7 +57,10 @@ public class CharityDetailFragment extends Fragment implements View.OnClickListe
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mCharity = Parcels.unwrap(getArguments().getParcelable("charity"));
+
+        mCharities = Parcels.unwrap(getArguments().getParcelable(Constants.EXTRA_KEY_CHARITIES));
+        mPosition = getArguments().getInt(Constants.EXTRA_KEY_POSITION);
+        mCharity = mCharities.get(mPosition);
     }
 
 
