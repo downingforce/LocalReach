@@ -11,14 +11,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".ui.MainActivity"
-            android:theme="@style/NoActionBarTheme">
-            >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            android:name=".ui.MainActivity">
         </activity>
         <activity android:name=".ui.CharityResults">
             <meta-data
@@ -29,7 +22,13 @@
         <activity android:name=".ui.LandingScreenActivity" />
         <activity android:name=".ui.SavedCharityList" />
         <activity android:name=".ui.CreateAccount" />
-        <activity android:name=".ui.Login"></activity>
+        <activity android:name=".ui.Login">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>
