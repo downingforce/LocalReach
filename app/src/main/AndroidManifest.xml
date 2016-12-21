@@ -23,11 +23,13 @@
         <activity android:name=".ui.CharityResults">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".ui.MainActivity"></meta-data>
+                android:value=".ui.MainActivity" />
         </activity>
         <activity android:name=".ui.CharityDetail" />
         <activity android:name=".ui.LandingScreenActivity" />
-        <activity android:name=".ui.SavedCharityList"></activity>
+        <activity android:name=".ui.SavedCharityList" />
+        <activity android:name=".ui.CreateAccount" />
+        <activity android:name=".ui.Login"></activity>
     </application>
 
 </manifest>
