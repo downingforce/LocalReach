@@ -108,7 +108,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View v) {
         if (v == mSearchCharitiesButton) {
+            String location = mZipCodeEditText.getText().toString();
             Intent intent = new Intent(MainActivity.this, CharityResults.class);
+            intent.putExtra("location", location);
             startActivity(intent);
             Animation animation = new AlphaAnimation(1.0f, 0.0f);
             animation.setDuration(1000);
