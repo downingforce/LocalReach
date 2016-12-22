@@ -3,9 +3,6 @@ package downingforce.localreach.adapters;
 
 import android.content.Context;
 import android.content.Intent;
-import android.content.res.Configuration;
-import android.support.v4.app.FragmentActivity;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -27,7 +24,6 @@ import downingforce.localreach.Constants;
 import downingforce.localreach.R;
 import downingforce.localreach.models.Charity;
 import downingforce.localreach.ui.CharityDetail;
-import downingforce.localreach.ui.CharityDetailFragment;
 
 public class CharityListAdapter extends RecyclerView.Adapter<CharityListAdapter.CharityViewHolder> {
     private ArrayList<Charity> mCharities = new ArrayList<>();
@@ -39,13 +35,11 @@ public class CharityListAdapter extends RecyclerView.Adapter<CharityListAdapter.
         mCharities = charities;
     }
 
-        @Override
+    @Override
     public CharityListAdapter.CharityViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.charity_list_item, parent, false);
         CharityViewHolder viewHolder = new CharityViewHolder(view);
         return viewHolder;
-
-
     }
 
     @Override
@@ -58,22 +52,17 @@ public class CharityListAdapter extends RecyclerView.Adapter<CharityListAdapter.
         return mCharities.size();
     }
 
-    public class CharityViewHolder extends RecyclerView.ViewHolder {
+    public class CharityViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
         @Bind(R.id.charityImageView) ImageView mCharityImageView;
         @Bind(R.id.charityNameTextView) TextView mCharityNameTextView;
         @Bind(R.id.missionStatementTextView) TextView mMissionStatementTextView;
         private Context mContext;
-        private int mOrientation;
-
 
         public CharityViewHolder(View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);
             mContext = itemView.getContext();
-            mOrientation = itemView.getResources().getConfiguration().orientation;
-            if (mOrientation == Configuration.ORIENTATION_LANDSCAPE) {
-                createDetailFragment(0);
-            }
+
             Animation slide = AnimationUtils.loadAnimation(mContext, R.anim.slide);
             itemView.startAnimation(slide);;
             itemView.setOnClickListener(new View.OnClickListener() {
@@ -95,23 +84,12 @@ public class CharityListAdapter extends RecyclerView.Adapter<CharityListAdapter.
             mMissionStatementTextView.setText(charity.getmMission());
         }
 
-        private void createDetailFragment(int position) {
-            CharityDetailFragment detailFragment = CharityDetailFragment.newInstance(mCharities, position);
-            FragmentTransaction ft = ((FragmentActivity) mContext).getSupportFragmentManager().beginTransaction();
-            ft.replace(R.id.charityDetailContainer, detailFragment);
-            ft.commit();
-        }
-
         public void onClick(View v) {
             int itemPosition = getLayoutPosition();
-            if (mOrientation == Configuration.ORIENTATION_LANDSCAPE) {
-                createDetailFragment(itemPosition);
-            } else {
-                Intent intent = new Intent(mContext, CharityDetail.class);
-                intent.putExtra(Constants.EXTRA_KEY_POSITION, itemPosition);
-                intent.putExtra(Constants.EXTRA_KEY_CHARITIES, Parcels.wrap(mCharities));
-                mContext.startActivity(intent);
-            }
+            Intent intent = new Intent(mContext, CharityDetail.class);
+            intent.putExtra(Constants.EXTRA_KEY_POSITION, itemPosition);
+            intent.putExtra(Constants.EXTRA_KEY_CHARITIES, Parcels.wrap(mCharities));
+            mContext.startActivity(intent);
         }
     }
 }
