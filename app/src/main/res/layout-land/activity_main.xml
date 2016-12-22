@@ -1,13 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_main"
-    android:layout_width="match_parent"
+    android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="downingforce.localreach.ui.MainActivity"
-    android:background="#000000">
-
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -19,30 +15,6 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Local Reach"
-        android:layout_marginTop="164dp"
-        android:id="@+id/appName"
-        android:gravity="center"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:textColor="@color/colorTextIcons"
-        android:textSize="40sp" />
-
-    <TextView
-        android:layout_width="240dp"
-        android:layout_height="wrap_content"
-        android:text="connecting neighborhoods to local charities"
-        android:id="@+id/textView"
-        android:textColor="@color/colorTextIcons"
-        android:textSize="20sp"
-        android:layout_marginTop="33dp"
-        android:gravity="center"
-        android:layout_below="@+id/appName"
-        android:layout_centerHorizontal="true" />
 
     <EditText
         android:layout_width="256dp"
@@ -82,4 +54,27 @@
         android:layout_marginTop="10dp"
         android:layout_alignLeft="@+id/zipCode"
         android:layout_alignStart="@+id/zipCode" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Local Reach"
+        android:id="@+id/appName"
+        android:gravity="center"
+        android:textColor="@color/colorTextIcons"
+        android:textSize="40sp"
+        android:layout_alignParentTop="true"
+        android:layout_alignLeft="@+id/textView"
+        android:layout_alignStart="@+id/textView" />
+
+    <TextView
+        android:layout_width="240dp"
+        android:layout_height="wrap_content"
+        android:text="connecting neighborhoods to local charities"
+        android:id="@+id/textView"
+        android:textColor="@color/colorTextIcons"
+        android:textSize="20sp"
+        android:gravity="center"
+        android:layout_below="@+id/appName"
+        android:layout_centerHorizontal="true" />
 </RelativeLayout>

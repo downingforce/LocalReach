@@ -2,15 +2,16 @@ package downingforce.localreach.ui;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -31,7 +32,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
     @Bind(R.id.emailEditText) EditText mEmailEditText;
     @Bind(R.id.passwordEditText) EditText mPasswordEditText;
     @Bind(R.id.registerTextView) TextView mRegisterTextView;
-
+    @Bind(R.id.linearLayout) LinearLayout mLayout;
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
     private ProgressDialog mAuthProgressDialog;
@@ -97,10 +98,16 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
         mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
+                Animation animation = new AlphaAnimation(1.0f, 0.0f);
+                animation.setDuration(500);
+                mLayout.startAnimation(animation);
                 Log.d(TAG, "signInWithEmail:onComplete:" + task.isSuccessful());
                 mAuthProgressDialog.dismiss();
 
+
+
                 if (!task.isSuccessful()) {
+
                     Log.w(TAG, "signInWithEmail", task.getException());
                     Toast.makeText(Login.this, "Authentication failed.",
                             Toast.LENGTH_SHORT).show();
@@ -127,10 +134,11 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
         }
 
         if (view == mPasswordLoginButton) {
+
+
             loginWithPassword();
-            Animation animation = new AlphaAnimation(1.0f, 0.0f);
-            animation.setDuration(1000);
-            mPasswordLoginButton.startAnimation(animation);
+
+
         }
 
     }

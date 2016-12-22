@@ -13,16 +13,22 @@
         <activity
             android:name=".ui.MainActivity">
         </activity>
-        <activity android:name=".ui.CharityResults">
+        <activity android:name=".ui.CharityResults"
+            android:screenOrientation="portrait">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".ui.MainActivity" />
         </activity>
-        <activity android:name=".ui.CharityDetail" />
-        <activity android:name=".ui.LandingScreenActivity" />
-        <activity android:name=".ui.SavedCharityList" />
-        <activity android:name=".ui.CreateAccount" />
-        <activity android:name=".ui.Login">
+        <activity android:name=".ui.CharityDetail"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".ui.LandingScreenActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".ui.SavedCharityList"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".ui.CreateAccount"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".ui.Login"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

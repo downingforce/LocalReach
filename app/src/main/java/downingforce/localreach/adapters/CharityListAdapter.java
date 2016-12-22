@@ -4,14 +4,14 @@ package downingforce.localreach.adapters;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
-import android.net.Uri;
-import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -19,14 +19,13 @@ import com.squareup.picasso.Picasso;
 
 import org.parceler.Parcels;
 
-import downingforce.localreach.Constants;
-import downingforce.localreach.R;
-import downingforce.localreach.models.Charity;
-
 import java.util.ArrayList;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import downingforce.localreach.Constants;
+import downingforce.localreach.R;
+import downingforce.localreach.models.Charity;
 import downingforce.localreach.ui.CharityDetail;
 import downingforce.localreach.ui.CharityDetailFragment;
 
@@ -44,8 +43,8 @@ public class CharityListAdapter extends RecyclerView.Adapter<CharityListAdapter.
     public CharityListAdapter.CharityViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.charity_list_item, parent, false);
         CharityViewHolder viewHolder = new CharityViewHolder(view);
-
         return viewHolder;
+
 
     }
 
@@ -75,6 +74,8 @@ public class CharityListAdapter extends RecyclerView.Adapter<CharityListAdapter.
             if (mOrientation == Configuration.ORIENTATION_LANDSCAPE) {
                 createDetailFragment(0);
             }
+            Animation slide = AnimationUtils.loadAnimation(mContext, R.anim.slide);
+            itemView.startAnimation(slide);;
             itemView.setOnClickListener(new View.OnClickListener() {
 
                 @Override
@@ -97,7 +98,7 @@ public class CharityListAdapter extends RecyclerView.Adapter<CharityListAdapter.
         private void createDetailFragment(int position) {
             CharityDetailFragment detailFragment = CharityDetailFragment.newInstance(mCharities, position);
             FragmentTransaction ft = ((FragmentActivity) mContext).getSupportFragmentManager().beginTransaction();
-            ft.replace(R.id.charityDetailContainer, detailFragment);
+//            ft.replace(R.id.charityDetailContainer, detailFragment);
             ft.commit();
         }
 

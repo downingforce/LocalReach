@@ -56,7 +56,7 @@ public class FirebaseCharityViewHolder extends RecyclerView.ViewHolder implement
 
     @Override
     public void onClick(View view) {
-        final ArrayList<Charity> charities = new ArrayList<>();
+        final ArrayList charities = new ArrayList<>();
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference(Constants.FIREBASE_CHILD_CHARITIES);
         ref.addListenerForSingleValueEvent(new ValueEventListener() {
 

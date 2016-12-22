@@ -2,31 +2,31 @@ package downingforce.localreach.ui;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.SearchView;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 
-import downingforce.localreach.Constants;
-import downingforce.localreach.R;
-import downingforce.localreach.adapters.CharityListAdapter;
-import downingforce.localreach.services.GuideStarService;
-import downingforce.localreach.models.Charity;
-
 import java.io.IOException;
 import java.util.ArrayList;
 
-import okhttp3.Response;
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import downingforce.localreach.Constants;
+import downingforce.localreach.R;
+import downingforce.localreach.adapters.CharityListAdapter;
+import downingforce.localreach.models.Charity;
+import downingforce.localreach.services.GuideStarService;
 import okhttp3.Call;
 import okhttp3.Callback;
+import okhttp3.Response;
 
 public class CharityResults extends AppCompatActivity {
 
@@ -47,6 +47,7 @@ public class CharityResults extends AppCompatActivity {
 
         Intent intent = getIntent();
         String location = intent.getStringExtra("location");
+        Log.d("test", location + "hey ");
 
         getCharities(location);
 

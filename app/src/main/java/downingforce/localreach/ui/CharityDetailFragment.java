@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,6 +17,8 @@ import downingforce.localreach.Constants;
 import downingforce.localreach.R;
 import downingforce.localreach.models.Charity;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.squareup.picasso.Picasso;
@@ -91,10 +94,17 @@ public class CharityDetailFragment extends Fragment implements View.OnClickListe
             startActivity(webIntent);
         }
         if (v == mSaveCharityButton) {
-            DatabaseReference restaurantRef = FirebaseDatabase
+            FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+            String uid = user.getUid();
+            Log.d("test", uid);
+            DatabaseReference charityRef = FirebaseDatabase
                     .getInstance()
-                    .getReference(Constants.FIREBASE_CHILD_CHARITIES);
-            restaurantRef.push().setValue(mCharity);
+                    .getReference(Constants.FIREBASE_CHILD_CHARITIES)
+                    .child(uid);
+            DatabaseReference pushCharity = charityRef.push();
+            String pushId = pushCharity.getKey();
+            mCharity.setPushId(pushId);
+            pushCharity.setValue(mCharity);
             Toast.makeText(getContext(), "Saved", Toast.LENGTH_SHORT).show();
         }
     }

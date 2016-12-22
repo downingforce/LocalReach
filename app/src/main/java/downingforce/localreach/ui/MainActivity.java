@@ -1,34 +1,25 @@
 package downingforce.localreach.ui;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
-import android.preference.PreferenceManager;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.EditText;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
-
-import downingforce.localreach.Constants;
-import downingforce.localreach.R;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import downingforce.localreach.R;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -109,12 +100,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         if (v == mSearchCharitiesButton) {
             String location = mZipCodeEditText.getText().toString();
-            Intent intent = new Intent(MainActivity.this, CharityResults.class);
-            intent.putExtra("location", location);
-            startActivity(intent);
-            Animation animation = new AlphaAnimation(1.0f, 0.0f);
-            animation.setDuration(1000);
-            mSearchCharitiesButton.startAnimation(animation);
+            if (location.equals("")) {
+                Animation shake = AnimationUtils.loadAnimation(MainActivity.this, R.anim.shake);
+                mZipCodeEditText.startAnimation(shake);
+            } else {
+                Intent intent = new Intent(MainActivity.this, CharityResults.class);
+                intent.putExtra("location", location);
+                startActivity(intent);
+                Animation animation = new AlphaAnimation(1.0f, 0.0f);
+                animation.setDuration(1000);
+                mSearchCharitiesButton.startAnimation(animation);
+            }
         }
         if (v == mMyCharitiesButton) {
             Intent intent = new Intent(MainActivity.this, SavedCharityList.class);
