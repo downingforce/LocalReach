@@ -33,6 +33,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
     @Bind(R.id.passwordEditText) EditText mPasswordEditText;
     @Bind(R.id.registerTextView) TextView mRegisterTextView;
     @Bind(R.id.linearLayout) LinearLayout mLayout;
+
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
     private ProgressDialog mAuthProgressDialog;
@@ -42,12 +43,10 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-
         ButterKnife.bind(this);
 
         mRegisterTextView.setOnClickListener(this);
         mPasswordLoginButton.setOnClickListener(this);
-
         mAuth = FirebaseAuth.getInstance();
         createAuthProgressDialog();
 
@@ -104,8 +103,6 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
                 Log.d(TAG, "signInWithEmail:onComplete:" + task.isSuccessful());
                 mAuthProgressDialog.dismiss();
 
-
-
                 if (!task.isSuccessful()) {
 
                     Log.w(TAG, "signInWithEmail", task.getException());
@@ -134,11 +131,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
         }
 
         if (view == mPasswordLoginButton) {
-
-
             loginWithPassword();
-
-
         }
 
     }

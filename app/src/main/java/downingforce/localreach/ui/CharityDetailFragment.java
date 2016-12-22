@@ -5,17 +5,12 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import downingforce.localreach.Constants;
-import downingforce.localreach.R;
-import downingforce.localreach.models.Charity;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -29,6 +24,9 @@ import java.util.ArrayList;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import downingforce.localreach.Constants;
+import downingforce.localreach.R;
+import downingforce.localreach.models.Charity;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -96,7 +94,6 @@ public class CharityDetailFragment extends Fragment implements View.OnClickListe
         if (v == mSaveCharityButton) {
             FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
             String uid = user.getUid();
-            Log.d("test", uid);
             DatabaseReference charityRef = FirebaseDatabase
                     .getInstance()
                     .getReference(Constants.FIREBASE_CHILD_CHARITIES)

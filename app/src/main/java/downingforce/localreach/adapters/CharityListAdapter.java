@@ -98,7 +98,7 @@ public class CharityListAdapter extends RecyclerView.Adapter<CharityListAdapter.
         private void createDetailFragment(int position) {
             CharityDetailFragment detailFragment = CharityDetailFragment.newInstance(mCharities, position);
             FragmentTransaction ft = ((FragmentActivity) mContext).getSupportFragmentManager().beginTransaction();
-//            ft.replace(R.id.charityDetailContainer, detailFragment);
+            ft.replace(R.id.charityDetailContainer, detailFragment);
             ft.commit();
         }
 

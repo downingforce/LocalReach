@@ -21,8 +21,6 @@
         </activity>
         <activity android:name=".ui.CharityDetail"
             android:screenOrientation="portrait"/>
-        <activity android:name=".ui.LandingScreenActivity"
-            android:screenOrientation="portrait"/>
         <activity android:name=".ui.SavedCharityList"
             android:screenOrientation="portrait"/>
         <activity android:name=".ui.CreateAccount"

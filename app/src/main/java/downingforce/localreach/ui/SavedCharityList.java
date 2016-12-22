@@ -1,10 +1,9 @@
 package downingforce.localreach.ui;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.auth.FirebaseAuth;
@@ -46,7 +45,6 @@ public class SavedCharityList extends AppCompatActivity {
     private void setUpFirebaseAdapter() {
         mFirebaseAdapter = new FirebaseRecyclerAdapter<Charity, FirebaseCharityViewHolder>
                 (Charity.class, R.layout.charity_list_item, FirebaseCharityViewHolder.class, mCharityReference) {
-
 
             @Override
             protected void populateViewHolder(FirebaseCharityViewHolder viewHolder, Charity model, int position) {
